@@ -1,0 +1,49 @@
+body,html{
+    margin: 0;
+    padding: 0;
+}
+div{
+    display: block;
+}
+strong,b{
+    font-weight: bold;
+}
+dd,dt,ul,dl{
+    margin: 0;
+    padding: 0;
+}
+p{
+    margin-top: 0;
+    margin-bottom: 0;
+    /*margin: 0;*/
+}
+a{
+    text-decoration: none;
+}
+.com-header li{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.com-header ul{
+    padding: 0;
+    margin: 0;
+}
+.com-header input{
+    outline: 0;
+}
+.clearfix:before{
+    content: " ";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+}
+.mf-shang-hei-regular{
+    font-family: MFShangHei-Regular!important;
+}
+body{
+    -webkit-font-smoothing: antialiased;
+    font-family: "-apple-system",BlinkMacSystemFont,Roboto,"Helvetica Neue","MIcrosoft YaHei",PingFangSC,sans-serif!important;
+    /*background-color: #F8F8F8!important;*/
+}

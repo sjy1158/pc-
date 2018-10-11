@@ -1,0 +1,186 @@
+.logoheader{
+    height: 104px;
+    width: 100%;
+    background: #FFFFFF;
+}
+.logoheader .titlelogo{
+    width: 1190px;
+    height: 100%;
+    /*background: #31BBAC;*/
+    margin: 0 auto;
+    position: relative;
+}
+.logoheader .titlelogo img{
+    position: absolute;
+    top: 50%;
+    margin-top: -37px;
+    left: 15px;
+}
+.shopImg{
+    display: flex;
+}
+.shopImg .shops{
+    display: flex;
+    width: 1190px;
+    height: auto;
+    /*background: #31BBAC;*/
+    margin: 0 auto;
+}
+.shopImg .shops .introduce{
+    color: #4A4A4A;
+    padding-left: 40px;
+}
+.shopImg .shops div{
+    flex-wrap: wrap;
+}
+
+div.discon{
+    float: left;
+    display: flex;
+    margin-right: 22px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+    div.discon{
+        float: left;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+}
+
+div.discon div{
+    flex: 1;
+    text-align: center;
+    line-height:86px;
+}
+div.discon div:first-child{
+    color: #FF0000;
+    font-size: 18px;
+}
+div.discon div:nth-child(2){
+    color: #FFFFFF;
+    font-size: 18px;
+}
+.slideTab{
+    padding-left: 35px;
+    padding-right: 35px;
+}
+.slideTab li{
+    float: left;
+    color: #393939;
+    font-size: 16px;
+    margin-right: 53px;
+    padding-bottom: 21px;
+}
+.tabactive{
+    color: #F08400!important;
+    border-bottom: 2px solid #F08400;
+}
+.contentlist{
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-bottom: 25px;
+}
+ul.allsshops{
+    display: flex;
+    flex-wrap: wrap;
+    /*justify-content:center;*/
+}
+
+ul.allsshops li{
+    float: left;
+    margin-left: 24px;
+    /*margin-right: 10px;*/
+    margin-bottom: 40px;
+    padding: 5px;
+    box-shadow: 0 0 10px #b8bbbf;
+}
+
+
+
+
+
+/*商家详情*/
+.shopDeletal img{
+    margin-right: 30px;
+}
+
+#contentlist{
+    color: #393939;
+    font-size: 16px;
+}
+#contentlist p{
+    padding-left: 70px;
+    padding-top: 10px;
+    color: #393939;
+    font-size: 14px;
+}
+[v-cloak]{ display: none; }
+
+.shoplogoimg{
+    transition: All 0.4s ease-in-out;
+    -webkit-transition: All 0.4s ease-in-out;
+    -moz-transition: All 0.4s ease-in-out;
+    -o-transition: All 0.4s ease-in-out;
+}
+.shoplogoimg:hover{
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+}
+.shopitem{
+    transition: All 0.4s ease-in-out;
+    -webkit-transition: All 0.4s ease-in-out;
+    -moz-transition: All 0.4s ease-in-out;
+    -o-transition: All 0.4s ease-in-out;
+}
+.shopitem:hover{
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+}
+
+
+/*放大镜效果*/
+.xiao {
+    width: 751px;height: 377px;
+    margin: 50px auto 0;
+    position: relative;
+}
+
+.xiaopci {
+    width: 751px;height: 377px;
+    display: block;
+    margin-top: -15px;
+}
+
+.shou {
+    width: 100px;
+    height: 100px;
+    background: rgba(125, 211, 145, 0.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+.da {
+    width: 300px;height: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    display: none;
+}
+
+.dapci {
+    width: 1000px;height: 1000px;
+    position: absolute;
+}
+/*ul.allsshops li{*/
+    /*float: left;*/
+/*}*/

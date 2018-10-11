@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<link rel="stylesheet" type="text/css" href="../css/common.css">
+<link rel="stylesheet" type="text/css" href="../css/register.css">
+<link rel="stylesheet" type="text/css" href="//s0.meituan.net/bs/fe-web-meituan/34aeb91/css/main.css">
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+<link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<body>
+    <div id="app">
+        <header style="height: 123px;width: 100%;background: white;">
+            <div class="logo">
+                <a href="../home.html"><img src="../img/logopc.png" alt=""></a>
+                <div class="title">
+                    <span>已有跨业账号？</span>
+                    <a href="../html/login.html">登录</a>
+                </div>
+            </div>
+        </header>
+        <div class="line"></div>
+        <form action="">
+            <div>
+                <input type="text" v-model="formInline.phoneId" style="width: 315px;height: 40px;" placeholder="请输入手机号码">
+            </div>
+            <div>
+                <input type="text" style="width: 193px;height: 40px;float: left" v-model="sendcode" placeholder="请输入验证码">
+                <button type="button" style="height: 40px;float: right;width: 112px;" class="sendcode" @click="sendCode" v-cloak>{{codeType}}</button>
+            </div>
+            <div>
+                <input type="password" v-model="password" style="width: 315px;height: 40px;" placeholder="请输入登录密码（6-16位数字或字母）">
+            </div>
+            <div>
+                <input type="text" v-model="formInline.nickName" style="width: 315px;height: 40px;" placeholder="请输入昵称2-24个字符">
+            </div>
+            <div>
+                <input type="text" v-model="formInline.invitationCode" style="width: 315px;height: 40px;" placeholder="请输入邀请码（选填）">
+            </div>
+            <p style="margin-top: 0px!important;margin-bottom: 25px;color: #8F8F8F;font-size: 16px;letter-spacing: 2px;text-align: left">请点击上传头像</p>
+            <div>
+                <el-upload
+                        action="http://up.qiniu.com/"
+                        :data="postData"
+                        list-type="picture-card"
+                        :limit="1"
+                        :before-upload="beforeUpload"
+                        :on-preview="handlePictureCardPreview"
+                        :on-remove="handleRemove"
+                        :on-success="handleSuccess">
+                    <i class="el-icon-plus"></i>
+                </el-upload>
+                <el-dialog :visible.sync="dialogVisible">
+                    <img width="100%" :src="formInline.headImageUrl" alt="">
+                </el-dialog>
+            </div>
+            <button type="button" class="reBtn" @click="getRegister">注册</button>
+            <p style="letter-spacing: 2px;">注册成功后，请扫码下载APP使用</p>
+            <img src="../img/appcode.png" alt="" style="width: 142px;height: 142px;margin-top: 24px;margin-bottom: 25px;">
+        </form>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="../js/getDate.js"></script>
+<script src="../plugins/core.js"></script>
+<script src="../plugins/cipher-core.js"></script>
+<script src="../plugins/tripledes.js"></script>
+<script src="../plugins/mode-ecb.js"></script>
+<script>
+    var vue = new Vue({
+        el:'#app',
+        data:{
+            formInline:{
+                phoneId:'',
+                nickName:'',
+                invitationCode:'',
+                password:'',
+                module:'1',
+                headImageUrl:'',
+            },
+            sendcode:'',
+            code:'',
+            codeType:'发送验证码',
+            postData:{
+                token:'',
+                key:''
+            },
+            password:'',
+            dialogVisible: false
+        },
+        methods:{
+            getKey:function(){
+                var obj = getList('userPage/getQiNiuToken','',false);
+                this.postData.token = obj.token;
+            },
+            // 发送验证码
+            sendCode:function(){
+                var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+                if(!myreg.test(this.formInline.phoneId)){
+                    this.$message({
+                        type: 'warning',
+                        message:'请输入正确的手机号'
+                    });
+                }else{
+                    var obj = new Object();
+                    obj.type = 1;
+                    obj.phone = this.formInline.phoneId;
+                    var data = getList('userOperation/sendMessage',obj,false);
+                    if(data.codeString.length!=0&&data.codeString!=null&&data.codeString!=undefined){
+                        this.code = data.codeString;
+                        this.codeType = '验证码已发送'
+                    }else{
+                        this.$message({
+                            type:'error',
+                            message:'验证码发送失败'
+                        })
+                    }
+                }
+            },
+            // des加密
+            encryptByDES:function(message,key){
+                var keyHex = CryptoJS.enc.Utf8.parse(key);
+                var encrypted = CryptoJS.DES.encrypt(message, keyHex, {
+                    mode: CryptoJS.mode.ECB,
+                    padding: CryptoJS.pad.Pkcs7
+                });
+                return encrypted.toString();
+            },
+            // 注册
+            getRegister(){
+                var myreg=/^[1][3,4,5,7,8][0-9]{9}$/; //手机号码
+                var passwordreg = /^[0-9a-zA-Z]{6,16}$/; //密码
+                var nickNamereg = /^[\u4E00-\u9FA5]{2,24}$/; //昵称
+
+                if(!myreg.test(this.formInline.phoneId)){
+                    this.$message({
+                        type:'warning',
+                        message:'请输入正确手机号'
+                    })
+                }else{
+                    if(this.sendcode==''||this.sendcode!=this.code){
+                        this.$message({
+                            type:'warning',
+                            message:'请输入正确验证码'
+                        })
+                    }else{
+                            if(!passwordreg.test(this.password)){
+                                this.$message({
+                                    type:'warning',
+                                    message:'请输入正确格式密码'
+                                })
+                            }else{
+                                this.formInline.password = this.encryptByDES(this.formInline.phoneId,this.password);
+                                if(!nickNamereg.test(this.formInline.nickName)){
+                                    this.$message({
+                                        type:'warning',
+                                        message:'请输入正确格式昵称'
+                                    })
+                                }else{
+                                    if(this.formInline.headImageUrl==''){
+                                        this.$message({
+                                            type:'warning',
+                                            message:'请点击上传头像'
+                                        })
+                                    }else{
+                                        getList('userOperation/register',this.formInline,false);
+                                        this.$message({
+                                            type:'success',
+                                            message:'注册成功,赶紧去登录吧！'
+                                        })
+                                        setTimeout(function () {
+                                            window.location.href = 'login.html'
+                                        },2000)
+                                    }
+                                }
+                            }
+                        }
+                }
+            },
+            beforeUpload:function(file) {
+                const keyname=Date.parse(new Date());
+                this.postData.key=keyname;
+            },
+            handleSuccess:function(response, file, fileList) {
+                this.formInline.headImageUrl="http://pa8vmyrlm.bkt.clouddn.com/"+response.key;
+            },
+            handleRemove:function(file, fileList) {
+                // alert(file, fileList);
+            },
+            handlePictureCardPreview:function(file) {
+                this.formInline.imageUrl = file.url;
+                this.dialogVisible = true;
+            }
+        },
+        created:function(){
+            this.getKey()
+        },
+        mounted:function () {
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "pcguanwang",
+  "version": "1.0.0",
+  "description": "this is kyt guanwang",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git"
+  },
+  "keywords": [
+    "sjy1156"
+  ],
+  "author": "shijinyi",
+  "license": "ISC",
+  "dependencies": {
+    "jquery-lazyload": "^1.9.7",
+    "vue-lazyload": "^1.2.6"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
