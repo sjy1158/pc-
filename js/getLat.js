@@ -15,10 +15,10 @@ function getLat(){
                 zoomToAccuracy: true,
                 //  定位按钮的排放位置,  RB表示右下
                 buttonPosition: 'RB'
-            })
+            });
             geolocation.getCurrentPosition()
-            AMap.event.addListener(geolocation, 'complete', onComplete)
-            AMap.event.addListener(geolocation, 'error', onError)
+            AMap.event.addListener(geolocation, 'complete', onComplete);
+            AMap.event.addListener(geolocation, 'error', onError);
 
             function onComplete (data) {
                 var getLongitude = data.position.getLng();

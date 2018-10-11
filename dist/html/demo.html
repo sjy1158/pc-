@@ -1,0 +1,76 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title></title><style>* {
+        margin: 0;
+        padding: 0;
+    }
+
+    .xiao {
+        width: 300px;
+        height: 300px;
+        margin: 50px auto 0;
+        position: relative;
+    }
+
+    .xiaopci {
+        width: 300px;
+        height: 300px;
+        display: block;
+    }
+
+    .shou {
+        width: 100px;
+        height: 100px;
+        background: rgba(125, 211, 145, 0.5);
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: none;
+    }
+
+    .da {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        display: none;
+    }
+
+    .dapci {
+        position: absolute;
+    }</style></head><body><div class="xiao"><p class="shou"></p><!--随着移动的边框--><img class="xiaopci" src="../img/img1@3x.png"><!--小图片--></div><div class="da"><img class="dapci" src="../img/img1@3x.png"><!--大图片--></div></body><script>(function () {
+        var xiao = document.querySelector('.xiao');
+        var shou = document.querySelector('.shou');
+        var xiaop = document.querySelector('.xiaopci');
+        var da = document.querySelector('.da');
+        var dap = document.querySelector('.dapci');
+        xiao.onmouseover =  function () {
+            shou.style.display = 'block';
+            da.style.display = 'block';
+        };
+        xiao.onmouseout=function(){ //鼠标移出时隐藏.shou 和.da
+            shou.style.display='none';
+            da.style.display='none';
+        };
+        xiao.onmousemove = function (e) {
+            var x = e.clientX-xiao.offsetLeft-shou.offsetWidth/2;
+            var y = e.clientY-xiao.offsetTop-shou.offsetHeight/2;
+            if(x<0){
+                x=0;
+            };
+            if(x>xiao.offsetWidth-shou.offsetWidth){
+                x=xiao.offsetWidth-shou.offsetWidth;
+            };
+            if(y<0){
+                y=0;
+            };
+            if(y>xiao.offsetHeight-shou.offsetHeight){
+                y=xiao.offsetHeight-shou.offsetHeight;
+            };
+            shou.style.left=x+'px';
+            shou.style.top=y+'px';
+            var X=x/(xiao.offsetWidth-shou.offsetWidth);
+            var Y=y/(xiao.offsetHeight-shou.offsetHeight);
+            dap.style.left=-X*(dap.offsetWidth-da.offsetWidth)+'px';
+            dap.style.top=-Y*(dap.offsetHeight-da.offsetHeight)+'px';
+        }
+    })()</script></html>

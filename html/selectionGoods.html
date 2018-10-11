@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>精选商家</title>
-    <link rel="stylesheet" type="text/css" href="../css/common.css">
-    <link rel="stylesheet" type="text/css" href="../css/home.css">
+    <link rel="stylesheet" type="text/css" href="../stylus/common.min.css">
+    <link rel="stylesheet" type="text/css" href="../stylus/home.min.css">
     <link rel="stylesheet" type="text/css" href="//s0.meituan.net/bs/fe-web-meituan/34aeb91/css/main.css">
-    <link rel="stylesheet" type="text/css" href="../css/index.css">
-    <link rel="stylesheet" type="text/css" href="../css/iconfont.css">
-    <link rel="stylesheet" href="../css/nearbyshop.css">
-    <link rel="stylesheet" href="../css/selectionGoods.css">
-    <link rel="stylesheet" href="../css/element.css">
+    <link rel="stylesheet" type="text/css" href="../stylus/index.min.css">
+    <link rel="stylesheet" type="text/css" href="../stylus/iconfont.min.css">
+    <link rel="stylesheet" href="../stylus/nearbyshop.min.css">
+    <link rel="stylesheet" href="../stylus/selectionGoods.min.css">
+    <link rel="stylesheet" href="../stylus/element.min.css">
     <!--<link rel="stylesheet" href="../css/home.css">-->
 </head>
 <body>
@@ -185,7 +185,7 @@
     </header>
     <div class="logoheader">
         <div class="titlelogo">
-            <a href="../home.html"><img src="../img/logopc.png" alt="" style="height: 74px;width: 95px;"></a>
+            <a href="../home.html"><img src="../images/logopc.png" alt="" style="height: 74px;width: 95px;"></a>
         </div>
     </div>
 
@@ -199,7 +199,7 @@
                 <span style="color:#717171;font-size: 16px;font-weight: 700" v-cloak>{{dianshangShop.source}}价：<span style="color: #FF0000;font-size: 20px;padding-left: 7px;" v-cloak>{{dianshangShop.price.toFixed(2)}}</span>元</span>
                 <span style="float: right;color: #717171;font-size: 14px;font-weight: 700" v-cloak>销量：<span style="padding-left: 7px;">{{dianshangShop.salesVolume}}件</span></span>
             </p>
-            <div style="width: 440px;height: 107px;background: url('../img/commerce_coupons_bg@3x.png') no-repeat;background-size: cover;margin-top: 49px;color: #FFFFFF;">
+            <div style="width: 440px;height: 107px;background: url('../images/commerce_coupons_bg@3x.png') no-repeat;background-size: cover;margin-top: 49px;color: #FFFFFF;">
                 <div style="width: 50%;height: 100%;float: left;text-align: center">
                     <p style="padding-top: 10px;font-size: 28px;" v-cloak>{{dianshangShop.deduction}}元</p>
                     <p style="padding-top: 5px;font-size: 14px">本商品可用余额抵扣</p>
@@ -210,10 +210,10 @@
                 </div>
             </div>
             <div style="margin-top: 63px;width: 440px;text-align: center;">
-                <i><img src="../img/horizontal_line_left@3x.png" alt="" style="height: 6px;width: 31px;vertical-align: middle"></i>
-                <i style="margin-left: 6px;"><img src="../img/shopping_bags_icon@3x.png" alt="" style="width: 18px;height: 18px;vertical-align: middle"></i>
+                <i><img src="../images/horizontal_line_left@3x.png" alt="" style="height: 6px;width: 31px;vertical-align: middle"></i>
+                <i style="margin-left: 6px;"><img src="../images/shopping_bags_icon@3x.png" alt="" style="width: 18px;height: 18px;vertical-align: middle"></i>
                 <span style="font-size: 16px;color: #393939;padding-left: 10px;vertical-align: middle">商品信息 <a :href="dianshangShop.detailUrl"><span style="color: #4AB1FE;font-size: 16px;padding-left: 10px;">（点进查看商品详情）</span></a></span>
-                <i style="margin-left: 6px;"><img src="../img/horizontal_line_right@3x.png" alt="" style="height: 6px;width: 31px;vertical-align: middle"></i>
+                <i style="margin-left: 6px;"><img src="../images/horizontal_line_right@3x.png" alt="" style="height: 6px;width: 31px;vertical-align: middle"></i>
             </div>
             <div style="position: absolute;bottom: 0px;text-align: center;width: 440px;">
                 <button type="button" class="payquiky" @click="open">立即购买</button>
@@ -227,11 +227,11 @@
             <ul style="display: flex">
                 <li>
                     <p style="letter-spacing: 2px;">扫一扫下载APP</p>
-                    <img src="../img/appcode.png" alt="">
+                    <img src="../images/appcode.png" alt="">
                 </li>
                 <li>
                     <p style="letter-spacing: 2px;">扫一扫关注公共号</p>
-                    <img src="../img/gongzhonghao.png" alt="">
+                    <img src="../images/gongzhonghao.png" alt="">
                 </li>
             </ul>
             <p style="padding-top: 52px!important;">联系我们：0571-87682268</p>

@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>附近商家</title>
-    <link rel="stylesheet" type="text/css" href="../css/common.css">
-    <link rel="stylesheet" type="text/css" href="../css/home.css">
+    <link rel="stylesheet" type="text/css" href="../stylus/common.min.css">
+    <link rel="stylesheet" type="text/css" href="../stylus/home.min.css">
     <link rel="stylesheet" type="text/css" href="//s0.meituan.net/bs/fe-web-meituan/34aeb91/css/main.css">
-    <link rel="stylesheet" type="text/css" href="../css/index.css">
-    <link rel="stylesheet" type="text/css" href="../css/iconfont.css">
-    <link rel="stylesheet" href="../css/nearbyshop.css">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" type="text/css" href="../stylus/index.min.css">
+    <link rel="stylesheet" type="text/css" href="../stylus/iconfont.min.css">
+    <link rel="stylesheet" href="../stylus/nearbyshop.min.css">
+    <link rel="stylesheet" href="../stylus/home.min.css">
 </head>
 <body>
     <div id="app">
@@ -183,7 +183,7 @@
         </header>
         <div class="logoheader">
             <div class="titlelogo">
-                <a href="../home.html"><img src="../img/logopc.png" alt="" style="height: 74px;width: 95px;"></a>
+                <a href="../home.html"><img src="../images/logopc.png" alt="" style="height: 74px;width: 95px;"></a>
             </div>
         </div>
 
@@ -200,7 +200,7 @@
                     <p style="margin-top: 29px;font-size: 16px;"><span class="iconfont4">&#xe618;</span><span style="padding-left: 10px;">{{shopInfo.specificAddress}}</span></p>
                     <p style="margin-top: 15px;font-size: 16px;"><span class="iconfont5">&#xe604;</span><span style="padding-left: 10px;">电话 {{shopInfo.phone}}</span></p>
                     <div style="margin-top: 29px;display: flex;flex-wrap: wrap">
-                        <div style="background: url('../img/disconbg.png');width: 177px;height: 63px;background-size: cover;background-repeat: no-repeat;" class="discon" v-cloak v-for="item in shopInfo.deductionList">
+                        <div style="background: url('../images/disconbg.png');width: 177px;height: 63px;background-size: cover;background-repeat: no-repeat;" class="discon" v-cloak v-for="item in shopInfo.deductionList">
                             <div>¥{{item.requireValue}}</div>
                             <div>¥{{item.value}}</div>
                         </div>
@@ -252,11 +252,11 @@
                 <ul style="display: flex">
                     <li>
                         <p style="letter-spacing: 2px;">扫一扫下载APP</p>
-                        <img src="../img/appcode.png" alt="">
+                        <img src="../images/appcode.png" alt="">
                     </li>
                     <li>
                         <p style="letter-spacing: 2px;">扫一扫关注公共号</p>
-                        <img src="../img/gongzhonghao.png" alt="">
+                        <img src="../images/gongzhonghao.png" alt="">
                     </li>
                 </ul>
                 <p style="padding-top: 52px!important;">联系我们：0571-87682268</p>
